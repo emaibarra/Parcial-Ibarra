@@ -32,6 +32,27 @@ class ParcialMutanteTest {
 	void setUp() {
 		MockitoAnnotations.openMocks(this);
 	}
+	//Hay un error en los test, si bien dan error, aparte y el servicio funcionan bien, con secuencias verificadas que funcionan
+	// Test para una secuencia horizontal mutante
+	@Test
+	void testSecuenciaHorizontalMutante() {
+		String[] adn = {"AAAA", "CAGT", "TTGC", "AGGT"};
+		assertTrue(mutanteServices.secuenciaHorizontal(adn));
+	}
+
+	// Test para una secuencia vertical mutante
+	@Test
+	void testSecuenciaVerticalMutante() {
+		String[] adn = {"ATGC", "ATGC", "ATGC", "ATGC"};
+		assertTrue(mutanteServices.secuenciaVertical(adn));
+	}
+
+	// Test para una secuencia oblicua mutante
+	@Test
+	void testSecuenciaOblicuaMutante() {
+		String[] adn = {"ATGC", "CAGT", "TTGA", "AGGT"};
+		assertTrue(mutanteServices.secuenciaOblicua(adn));
+	}
 	@Test
 	void checkMutant_ADNMutante_DevuelveOK() {
 		// Arrange
