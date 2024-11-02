@@ -10,6 +10,8 @@ public class ParcialIbarraApplication {
 		SpringApplication.run(ParcialIbarraApplication.class, args);
 
 		System.out.println("Aplicacion andando");
+
 	}
+
 
 }

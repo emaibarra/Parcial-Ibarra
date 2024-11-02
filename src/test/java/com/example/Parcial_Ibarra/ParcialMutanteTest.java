@@ -63,6 +63,29 @@ class ParcialMutanteTest {
 		assertEquals(HttpStatus.FORBIDDEN, response.getStatusCode());
 		assertFalse(response.getBody().isMutant());
 	}
+
+	// Test para una secuencia de ADN sin mutación (no cumple las condiciones)
+	@Test
+	void testSecuenciaSinMutante() {
+		String[] adn = {"ATGC", "CAGT", "TTGC", "AGGT"};
+		assertFalse(mutanteServices.isMutant(adn));
+	}
+
+	// Test para un valor de ADN vacío
+	@Test
+	void testSecuenciaAdnVacia() {
+		String[] adn = {};
+		assertFalse(mutanteServices.isMutant(adn));
+	}
+
+	// Test para un valor de ADN null
+	@Test
+	void testSecuenciaAdnNull() {
+		String[] adn = null;
+		assertFalse(mutanteServices.isMutant(adn));
+	}
+
+
 }
 
 class EstadisticasControllerTest {

@@ -31,6 +31,8 @@ public class MutanteServices {
                     if (contador==3){
                         return true;
                     }
+                } else {
+                    contador=0;
                 }
             }
         }
@@ -47,9 +49,11 @@ public class MutanteServices {
 
                 if (adn[j].charAt(i) == adn[j+1].charAt(i)) {
                     contador = contador + 1;
-                } else break;
-                if (contador==3){
-                    return true;
+                    if (contador==3){
+                        return true;
+                    }
+                } else {
+                    contador=0;
                 }
             }
 
@@ -65,49 +69,6 @@ public class MutanteServices {
                 contador=contador+1;
             } else contador = 0;
             if (contador==3){
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    public boolean tieneSecuencia(String[]adn){
-        //secuencia horizontal
-        for (int i = 0; i < adn.length; i++) {
-            int contador = 0;
-            for (int j = 0; j < adn[i].length()-1; j++) {
-                if (adn[i].charAt(j) == adn[i].charAt(j+1)) {
-                    contador = contador+1;
-                    if (contador==3){
-                        return true;
-                    }
-                }
-            }
-        }
-        //secuencia vertical
-        for (int i = 0; i < adn.length; i++) {
-            int contador2 = 0;
-
-            for (int j=0; j < adn.length-1;j++) {
-
-                if (adn[j].charAt(i) == adn[j+1].charAt(i)) {
-                    contador2 = contador2 + 1;
-                } else break;
-                if (contador2==3){
-                    return true;
-                }
-            }
-
-        }
-        //secuencia oblicua
-        int contador3 = 0;
-        for (int i = 0; i < adn.length-1; i++) {
-
-            if (adn[i].charAt(i)==adn[i+1].charAt(i+1)){
-                contador3=contador3+1;
-            } else contador3 = 0;
-            if (contador3==3){
                 return true;
             }
         }
